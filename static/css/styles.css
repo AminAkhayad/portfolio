@@ -51,5 +51,36 @@ body {
   background-color: var(--primary-color);
 }
 
+.main-container {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 header {
+  & nav {
+    padding-top: var(--standard-padding);
+    display: flex;
+    justify-content: space-between;
+    & .links-container {
+      display: flex;
+      gap: var(--standard-gap);
+    }
+    & ul {
+      list-style: var(--list-style-none);
+      padding: 0rem;
+      & li {
+        color: var(--tertiary-color);
+        & a {
+          display: flex;
+          gap: var(--standard-gap);
+          color: var(--tertiary-color);
+          text-decoration: none;
+          & img {
+            width: 1rem;
+          }
+        }
+      }
+    }
+  }
 }
