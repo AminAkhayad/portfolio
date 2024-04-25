@@ -34,12 +34,22 @@
   font-display: swap;
 }
 
+:root {
+  --list-style-none: none;
+  --standard-padding: 1rem;
+  --standard-margin: 1rem;
+  --standard-border-radius: 1rem;
+  --standard-gap: 1rem;
+  --primary-color: #3d3b40;
+  --secondary-color: #525ceb;
+  --tertiary-color: #bfcfe7;
+  --hover-color: F8EDFF;
+}
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
   color: #333;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
+  background-color: var(--primary-color);
+}
+
+header {
 }
