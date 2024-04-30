@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/scripts/app.js --bundle --outfile=build/main.js",
+    "watch": "esbuild src/scripts/app.js --bundle --outfile=build/main.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.20.2"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  }
+}
