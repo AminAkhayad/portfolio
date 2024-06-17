@@ -1,0 +1,44 @@
+@import url("abstracts/font.css");
+
+:root {
+  --list-style-none: none;
+  --standard-padding: 1rem;
+  --standard-margin: 1rem;
+  --standard-border-radius: 1rem;
+  --standard-gap: 1rem;
+  --primary-color: #3d3b40;
+  --secondary-color: #525ceb;
+  --tertiary-color: #bfcfe7;
+  --quaternary-color: #F8EDFF;
+  --light-color: #ffff;
+  --hover-color: F8EDFF;
+}
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  color: #333;
+  background-color: var(--primary-color);
+  font-size: 1.5rem;
+  & .intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    & .intro-animation {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+      & p {
+        color: var(--light-color);
+        font-size: 2rem;
+        border: 1px solid var(--tertiary-color);
+        padding: 1rem;
+        border-radius: var(--standard-border-radius);
+      }
+    }
+  }
+}

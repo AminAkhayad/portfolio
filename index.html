@@ -8,6 +8,13 @@
     <title>Amin Akhayad</title>
 </head>
 <body>
+    <div data-animation="intro" class="intro-container">
+        <div data-animation='intro-item' class="intro-animation">
+            <dotlottie-player src="https://lottie.host/ffd3f1d6-f6f2-4258-81c1-c7a0f18f2237/ISD6LxWBRz.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></dotlottie-player>
+        
+        </div>
+    
+    </div>
     <section class="main-container">
         <header>
             <nav>
@@ -28,32 +35,53 @@
             </nav>
         </header>
         <main>
+            <div class="box"></div>
             <section class="main-content">
-                <div class="top-content">
+                <section class="top-content">
                     <div class="top-content-description">
-                        <h1>Welkom op mijn pagina</h1>
+                        <div class="discription__item-text">
+                            <h1>Hallo en welkom op mijn pagina</h1>
                     <p>Welkom op mijn digitale speeltuin,waar ik mijn ervaringen,projecten en meer met je deel</p>
+                    <p>Ik ben een student aan de Hogeschool van Gent en ik studeer Programmeren aan het Artevelde Hogeschool. </p>
                     <a class="experience-link" href="#experience">Bekijk mijn verhaal <img src="./static/img/arrow-right.svg" alt="arrow"></a>
+                        </div>
+                        
+                  
+                    
+                    
                     </div>
                     
+                </section>
+                <section id="experience" class="second-content">
                     <div class="about-container">
-                        <div class="about__description">
-                            <h2>Over mij</h2>
-    <p>Ik ben een student aan de Hogeschool van Gent en ik studeer Programmeren aan het Artevelde Hogeschool. <br> <br> Ik ben geïnteresseerd in webontwikkeling en ik ben altijd op zoek naar nieuwe dingen om te leren. Ik ben een teamspeler en ik ben altijd bereid om te helpen. Ik ben ook een fan van sport en ik hou van reizen.</p>
-                        </div>
-                        <div class="about__img">
+                        <div class="picture-container">
                             <figure>
-                                <img loading="lazy" src="./static/img/cv-pic.jpg" alt="Amin">
-                            </figure>
+                                                <img src="/static/img/cv-pic.jpg" alt="img">
+                    </figure>
+                        </div>
+                        <div class="info-container">
+                            <h1>Over mij</h1>
+                            <p>Als enthousiaste student aan de Artevelde Hogeschool volg ik momenteel het graduaat Programmeren. <br> <br> Mijn leergierigheid en focus zijn gericht op het ontwikkelen van websites op diverse manieren, waarbij ik mijzelf voortdurend uitdaag om nieuwe vaardigheden te verwerven en mijn kennis te verdiepen.</p>   
+                            <div class="contact-container">
+                                <h2>Mijn informatie</h2>
+                                <ul class="personal information">
+                                <li>Naam: Amin Akhayad</li>
+                                <li>Email: <a href="mailto:amin.akhayad@outlook.be" target="_blank">amin.akhayad@outlook.be</a></li>
+                                <li>Gsm: <a href="tel:0492473791">+04 92 47 37 91</a> </li>
+                            </ul>
+                            </div>
+                            
+                            
                         </div>
                     </div>
-                </div>
-            </section>
-          
-          <script src="./build/main.js"></script>
+                    
+                </section>
+            
+           
         </main>
-    </section>
+    </section> 
    
-    
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+          <script src="./build/main.js"></script>
 </body>
 </html>

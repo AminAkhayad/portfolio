@@ -1,9 +1,8 @@
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.from('.about-container', {
-    opacity: 0,
-    x: 200,
-    duration: 2,
-    ease: 'gentle',
-
-});
+import introAnimation from './animations/introAnimation';
+import boxFollowAnimation from './animations/boxFollowAnimation';
+boxFollowAnimation();
+introAnimation();

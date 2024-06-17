@@ -1,56 +1,15 @@
-@font-face {
-  font-family: "Open Sans Condensed";
-  src: url("../fonts/OpenSansCondensed-Medium.woff2") format("woff2"),
-    url("../fonts/OpenSansCondensed-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+@import url("general.css");
 
-@font-face {
-  font-family: "Open Sans Condensed";
-  src: url("../fonts/OpenSansCondensed-Bold.woff2") format("woff2"),
-    url("../fonts/OpenSansCondensed-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
+main {
+  & .box {
+    position: fixed;
+    inset: 0;
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--quaternary-color);
+  }
 }
-
-@font-face {
-  font-family: "Open Sans SemiCondensed";
-  src: url("../fonts/OpenSansSemiCondensed-SemiBold.woff2") format("woff2"),
-    url("../fonts/OpenSansSemiCondensed-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Open Sans SemiCondensed";
-  src: url("../fonts/OpenSansSemiCondensed-Regular.woff2") format("woff2"),
-    url("../fonts/OpenSansSemiCondensed-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root {
-  --list-style-none: none;
-  --standard-padding: 1rem;
-  --standard-margin: 1rem;
-  --standard-border-radius: 1rem;
-  --standard-gap: 1rem;
-  --primary-color: #3d3b40;
-  --secondary-color: #525ceb;
-  --tertiary-color: #bfcfe7;
-  --hover-color: F8EDFF;
-}
-body {
-  font-family: "Open Sans Condensed", sans-serif;
-  color: #333;
-  background-color: var(--primary-color);
-}
-
 .main-container {
   width: 100%;
   max-width: 90rem;
@@ -88,15 +47,20 @@ header {
 .top-content {
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-
+  flex-direction: row;
   color: white;
-  margin-top: 2rem;
+  margin-top: 4rem;
+
+  & .top-content-image {
+    width: 15rem;
+  }
 
   & .top-content-description {
-    width: 20rem;
+    width: 31rem;
     text-align: center;
     margin: 0 auto;
+    display: flex;
+    gap: 5rem;
   }
   & p {
     margin-bottom: var(--standard-margin);
@@ -117,25 +81,56 @@ header {
     border-radius: var(--standard-border-radius);
     cursor: pointer;
     text-decoration: none;
-    width: 11rem;
+    width: 15rem;
     margin: 0 auto;
     & img {
       width: 1rem;
     }
   }
+}
 
+.second-content {
+  margin-top: 2rem;
+  background-color: hsl(0, 0%, 20%);
+  padding: 1rem;
+  border-radius: var(--standard-border-radius);
   & .about-container {
-    margin-top: 5rem;
+    color: white;
     display: flex;
-    gap: var(--standard-gap);
-    & p {
-      margin-top: 1rem;
-      width: 20rem;
-      align-self: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    & .picture-container {
+      padding: 1rem;
+      & figure {
+        & img {
+          width: 16rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+        }
+      }
     }
-    & .about__img {
-      width: 15rem;
-      opacity: 1;
+    & .info-container {
+      width: 28rem;
+      padding: 1rem;
+      & h1,
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--tertiary-color);
+      }
+      & .contact-container {
+        padding-top: 4rem;
+        & a {
+          color: var(--tertiary-color);
+          text-decoration: none;
+          transition: color 0.5s;
+          &:hover {
+            background-color: var(--quaternary-color);
+            transition: background-color 0.5s;
+            color: var(--primary-color);
+          }
+        }
+      }
     }
   }
 }
