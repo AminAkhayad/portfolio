@@ -6647,8 +6647,8 @@
         zIndex: 5
       });
       $mainContainer.addEventListener("mousemove", (e2) => {
-        animationX(e2.clientX - 32);
-        animationY(e2.clientY - 32);
+        animationX(e2.clientX - 40);
+        animationY(e2.clientY - 40);
       });
     });
     $mainContainer.addEventListener("mouseleave", (e) => {
