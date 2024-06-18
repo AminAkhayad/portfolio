@@ -1,6 +1,62 @@
 @import url("general.css");
 
 main {
+  & .go-back-button {
+    margin-top: 2rem;
+    & a {
+      color: var(--tertiary-color);
+      text-decoration: none;
+      padding: var(--standard-padding);
+      border-radius: var(--standard-border-radius);
+      background-color: var(--secondary-color);
+      display: inline-flex;
+      gap: var(--standard-gap);
+      transition: background-color 0.5s;
+      & img {
+        width: 2rem;
+        transform: rotate(180deg);
+      }
+      &:hover {
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
+        outline: 1px solid var(--tertiary-color);
+        transition: outline 0.5s;
+        transition: background-color 0.5s;
+      }
+    }
+  }
+  & .information-container {
+    padding: 1rem;
+    & p {
+      padding-bottom: 1rem;
+    }
+  }
+  & .link-project {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    & a {
+      color: var(--tertiary-color);
+      text-decoration: none;
+      padding: var(--standard-padding);
+      border-radius: var(--standard-border-radius);
+      background-color: var(--secondary-color);
+      display: inline-flex;
+      gap: var(--standard-gap);
+      transition: background-color 0.5s;
+      & img {
+        width: 2rem;
+      }
+      &:hover {
+        background-color: var(--primary-color);
+        color: var(--tertiary-color);
+        outline: 1px solid var(--tertiary-color);
+        & img {
+          transform: translateX(0.5rem);
+          transition: transform 2s;
+        }
+      }
+    }
+  }
   & .box {
     position: fixed;
     inset: 0;
@@ -8,6 +64,13 @@ main {
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background-color: var(--quaternary-color);
+    opacity: 0;
+  }
+  & h1,
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--tertiary-color);
   }
 }
 .main-container {
@@ -89,11 +152,16 @@ header {
   }
 }
 
-.second-content {
+.second-content,
+.third-content,
+.description,
+.fourth-content {
   margin-top: 2rem;
   background-color: hsl(0, 0%, 20%);
+  border: solid 1px var(--quaternary-color);
   padding: 1rem;
   border-radius: var(--standard-border-radius);
+  color: var(--light-color);
   & .about-container {
     color: white;
     display: flex;
@@ -112,12 +180,7 @@ header {
     & .info-container {
       width: 28rem;
       padding: 1rem;
-      & h1,
-      h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        color: var(--tertiary-color);
-      }
+
       & .contact-container {
         padding-top: 4rem;
         & a {
@@ -134,3 +197,58 @@ header {
     }
   }
 }
+
+.third-content {
+  overflow: hidden;
+  margin-bottom: 2rem;
+  color: var(--light-color);
+  & .project-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 1rem;
+    & .project__item {
+      background-color: var(--secondary-color);
+      border-radius: var(--standard-border-radius);
+      transition: background-color 0.5s;
+      & a {
+        text-decoration: none;
+      }
+      cursor: pointer;
+      &:hover {
+        &:hover {
+          background-color: var(--light-color);
+          transition: background-color 0.5s;
+          outline: 5px solid var(--secondary-color);
+          color: var(--primary-color);
+          transition: color 0.5s;
+        }
+      }
+    }
+    & img {
+      border-radius: 1rem 1rem 0 0;
+    }
+    & h2 {
+      padding: 0.5rem;
+      height: 4rem;
+      transition: color 0.5s;
+    }
+  }
+}
+
+.fourth-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  & .motivation-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    & p {
+      width: 20rem;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+//description page

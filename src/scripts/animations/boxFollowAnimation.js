@@ -22,8 +22,8 @@ const boxFollowAnimation = () => {
             zIndex: 5,
         })
         $mainContainer.addEventListener('mousemove', (e) => {
-            animationX(e.clientX - 40);
-            animationY(e.clientY - 40);
+            animationX(e.clientX + 10);
+            animationY(e.clientY + 10);
         })
     })
     $mainContainer.addEventListener('mouseleave', (e) => {

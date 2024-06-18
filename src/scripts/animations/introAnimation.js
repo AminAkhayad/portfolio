@@ -9,13 +9,13 @@ const introAnimation = () => {
     console.log($introItems);
     const introAnimationTimeLine = gsap.timeline({
         defaults: {
-            duration: 1.5,
+            duration: 1.8,
             ease: "power2.out",
         }
     });
     introAnimationTimeLine
-        .from($introItems, { yPercent: 100, stagger: 0.4 })
-        .to($introContainer, { x: "100%", display: "none" })
+        .from($introItems, { yPercent: 100, stagger: 0.4})
+        .to($introContainer, { x: "100%", display: "none" , pinspacing: false})
 
 }
 

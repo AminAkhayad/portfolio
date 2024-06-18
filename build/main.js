@@ -6617,11 +6617,11 @@
     console.log($introItems);
     const introAnimationTimeLine = gsapWithCSS.timeline({
       defaults: {
-        duration: 1.5,
+        duration: 1.8,
         ease: "power2.out"
       }
     });
-    introAnimationTimeLine.from($introItems, { yPercent: 100, stagger: 0.4 }).to($introContainer, { x: "100%", display: "none" });
+    introAnimationTimeLine.from($introItems, { yPercent: 100, stagger: 0.4 }).to($introContainer, { x: "100%", display: "none", pinspacing: false });
   };
   var introAnimation_default = introAnimation;
 
@@ -6647,8 +6647,8 @@
         zIndex: 5
       });
       $mainContainer.addEventListener("mousemove", (e2) => {
-        animationX(e2.clientX - 40);
-        animationY(e2.clientY - 40);
+        animationX(e2.clientX + 10);
+        animationY(e2.clientY + 10);
       });
     });
     $mainContainer.addEventListener("mouseleave", (e) => {
@@ -6661,10 +6661,128 @@
   };
   var boxFollowAnimation_default = boxFollowAnimation;
 
+  // src/scripts/data/data.json
+  var data_default = [
+    {
+      img: "static/img/project-clar.png",
+      id: 1,
+      title: "Clar",
+      description: "Voor een opdracht gericht op Web Animatie moesten we een voorbeeld website nabouwen van Clar. Ik heb de website zo goed mogelijk nagemaakt en heb de animaties zo goed mogelijk proberen te benaderen. ",
+      technologies: ["HTML", "CSS", "JavaScript", "GSAP Framework"],
+      link: "https://github.com/pgmgent/clar-development-pgm-aminakha"
+    },
+    {
+      img: "static/img/project-toDo.png",
+      id: 2,
+      title: "To Do Application",
+      description: "Voor een opdracht gericht naar de back-end moesten we een To Do Application maken. ",
+      technologies: ["HBS", "CSS", "JavaScript", "Node.js", "Express.js", "Knex JS", "sqlite3", "Bcrypt", "JWT", "Dotenv", "cookie-parser", "express-handlebars", "express-validator", "handlebars-helpers", "jsonwebtoken", "nodemon", "objection"],
+      link: "https://github.com/pgmgent-pgm-3/opdracht-1-to-do-application-pgm-aminakha"
+    },
+    {
+      img: "static/img/project-JOMI.png",
+      id: 3,
+      title: "JOMI",
+      description: "Voor een opdracht gericht op Web Design moesten we een website maken voor een fictief bedrijf in Atwork@2. We waren samengesteld in een team van 4 en hebben de website gemaakt voor JOMI. Ik was verantwoordelijk voor het css en styling.",
+      technologies: ["HBS", "CSS", "JavaScript", "Node.js", "Express.js", "Knex JS", "My sql", "Bcrypt", "JWT", "Dotenv", "cookie-parser", "express-handlebars", "express-validator", "handlebars-helpers", "jsonwebtoken", "nodemon", "objection"],
+      link: "https://github.com/pgmgent-atwork2/project-2-final-codecrafters"
+    }
+  ];
+
+  // src/scripts/controllers/dataController.js
+  var dataController = async () => {
+    const $dataContainers = document.querySelectorAll("[data-component='data']");
+    $dataContainers.forEach(($dataContainer, index) => {
+      if (index < data_default.length) {
+        $dataContainer.innerHTML = `
+            
+            <a href="project.html?id=${data_default[index].id}" target="_blank">
+            <img src="${data_default[index].img}" alt="${data_default[index].title}"/>
+                <h2>${data_default[index].title}</h2>
+            </a>
+            `;
+      }
+    });
+  };
+  var generateStringForTechnologies = (technologies) => {
+    let string = "<ul>";
+    technologies.forEach((technology) => {
+      string += `<li>${technology}</li>`;
+    });
+    string += "</ul>";
+    return string;
+  };
+  var dataControllerDetail = async () => {
+    const getParams = (url) => {
+      const params2 = {};
+      new URL(url).searchParams.forEach((value, key) => {
+        params2[key] = value;
+      });
+      return params2;
+    };
+    const params = getParams(window.location.href);
+    console.log(params);
+    data_default.forEach((item) => {
+      if (item.id === parseInt(params.id)) {
+        console.log("true");
+        const $dataContainer = document.querySelector("[data-component='data-detail']");
+        $dataContainer.innerHTML = `
+            <img src="${item.img}" alt="${item.title}"/>
+            <div class="information-container">
+            <h2>${item.title}</h2>
+            <p>${item.description}</p>
+            <h2><strong>Technologie\xEBn:</strong></h2>
+            ${generateStringForTechnologies(item.technologies)}
+            <div class="link-project">
+                        <a href="${item.link}" target="_blank">Bekijk de code voor dit project! <img src="static/img/arrow-right.svg" alt="arrow"></a>
+            </div>
+
+            </div>
+            
+            `;
+      }
+    });
+  };
+  var dataController_default = dataController;
+
+  // src/scripts/animations/fadeUpProjects.js
+  var fadeUpProjects = () => {
+    const $section = document.querySelector(".third-content");
+    const $container = document.querySelectorAll('[data-component="data"]');
+    console.log($container);
+    console.log($section);
+    gsapWithCSS.from(
+      $container,
+      {
+        scrollTrigger: {
+          trigger: $section,
+          pinSpacing: false,
+          toggleActions: "play reverse reset reverse",
+          start: "top 80%",
+          end: "bottom 20%"
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2
+      }
+    );
+  };
+  var fadeUpProjects_default = fadeUpProjects;
+
   // src/scripts/app.js
   gsapWithCSS.registerPlugin(ScrollTrigger2);
-  boxFollowAnimation_default();
-  introAnimation_default();
+  if (document.querySelector(".box")) {
+    boxFollowAnimation_default();
+  }
+  if (document.querySelector(".intro-container")) {
+    introAnimation_default();
+  }
+  if (document.querySelector(".project-container")) {
+    fadeUpProjects_default();
+  }
+  dataController_default();
+  dataControllerDetail();
 })();
 /*! Bundled license information:
 

@@ -9,7 +9,7 @@
   --primary-color: #3d3b40;
   --secondary-color: #525ceb;
   --tertiary-color: #bfcfe7;
-  --quaternary-color: #F8EDFF;
+  --quaternary-color: #f8edff;
   --light-color: #ffff;
   --hover-color: F8EDFF;
 }
@@ -18,14 +18,21 @@ body {
   color: #333;
   background-color: var(--primary-color);
   font-size: 1.5rem;
+  position: relative;
   & .intro-container {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+    z-index: 1000;
+    background-color: var(--primary-color);
+
     & .intro-animation {
+      width: auto;
+      height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
