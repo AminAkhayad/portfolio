@@ -6621,7 +6621,7 @@
         ease: "power2.out"
       }
     });
-    introAnimationTimeLine.from($introItems, { yPercent: 100, stagger: 0.4 }).to($introContainer, { x: "100%", display: "none", pinspacing: false });
+    introAnimationTimeLine.from($introItems, { yPercent: 100, stagger: 0.4 }).to($introContainer, { x: "100%", display: "none" });
   };
   var introAnimation_default = introAnimation;
 
@@ -6749,15 +6749,13 @@
   var fadeUpProjects = () => {
     const $section = document.querySelector(".third-content");
     const $container = document.querySelectorAll('[data-component="data"]');
-    console.log($container);
-    console.log($section);
     gsapWithCSS.from(
       $container,
       {
         scrollTrigger: {
           trigger: $section,
           pinSpacing: false,
-          toggleActions: "play reverse reset reverse",
+          toggleActions: "play none none reset",
           start: "top 80%",
           end: "bottom 20%"
         },
@@ -6770,6 +6768,45 @@
   };
   var fadeUpProjects_default = fadeUpProjects;
 
+  // src/scripts/animations/pinAnimatie.js
+  var pinAnimatie = () => {
+    const $pinContainer = document.querySelector(".motivation-container");
+    const $pinItem = document.querySelector("[data-animation='pin']");
+    const $pinChild = $pinItem.querySelector("[data-element='pinChild']");
+    const pinItemHeight = $pinContainer.offsetHeight - $pinItem.scrollHeight - 220;
+    gsapWithCSS.to($pinChild, {
+      scrollTrigger: {
+        trigger: $pinContainer,
+        start: "top top",
+        end: `+=500`,
+        pin: $pinItem,
+        pinSpacing: false,
+        invalidateOnRefresh: true
+      }
+    });
+  };
+  var pinAnimatie_default = pinAnimatie;
+
+  // src/scripts/animations/fadeUptext.js
+  var fadeUptext = () => {
+    const $container = document.querySelector(".motivation__item");
+    console.log($container);
+    const $text = $container.querySelectorAll('[data-element="text"]');
+    gsapWithCSS.from($text, {
+      scrollTrigger: {
+        trigger: $container,
+        start: "top 80%",
+        bottom: "bottom 20%",
+        toggleActions: "play none none reverse"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2
+    });
+  };
+  var fadeUptext_default = fadeUptext;
+
   // src/scripts/app.js
   gsapWithCSS.registerPlugin(ScrollTrigger2);
   if (document.querySelector(".box")) {
@@ -6780,6 +6817,12 @@
   }
   if (document.querySelector(".project-container")) {
     fadeUpProjects_default();
+  }
+  if (document.querySelector(".motivation-container")) {
+    pinAnimatie_default();
+  }
+  if (document.querySelector(".motivation__item")) {
+    fadeUptext_default();
   }
   dataController_default();
   dataControllerDetail();

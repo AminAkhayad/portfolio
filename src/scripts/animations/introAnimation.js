@@ -15,7 +15,7 @@ const introAnimation = () => {
     });
     introAnimationTimeLine
         .from($introItems, { yPercent: 100, stagger: 0.4})
-        .to($introContainer, { x: "100%", display: "none" , pinspacing: false})
+        .to($introContainer, { x: "100%", display: "none"})
 
 }
 

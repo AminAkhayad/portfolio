@@ -3,15 +3,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const fadeUpProjects = () => {
     const $section = document.querySelector(".third-content");
     const $container = document.querySelectorAll('[data-component="data"]');
-    console.log($container);
-    console.log($section);
+
 
     gsap.from($container, {
         scrollTrigger: {
             trigger: $section,
 
             pinSpacing: false,
-            toggleActions: "play reverse reset reverse",
+            toggleActions: "play none none reset",
             start: "top 80%",
             end: "bottom 20%",
         },

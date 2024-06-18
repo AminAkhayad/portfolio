@@ -1,6 +1,27 @@
 @import url("general.css");
 
 main {
+  padding-bottom: 1rem;
+  & .top-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: var(--standard-padding);
+    background-color: var(--secondary-color);
+    width: fit-content;
+    border-radius: 1rem;
+
+    & a {
+      text-decoration: none;
+      color: var(--tertiary-color);
+
+      & img {
+        width: 2rem;
+        rotate: 270deg;
+      }
+    }
+  }
   & .go-back-button {
     margin-top: 2rem;
     & a {
@@ -155,7 +176,8 @@ header {
 .second-content,
 .third-content,
 .description,
-.fourth-content {
+.fourth-content,
+.fifth-content {
   margin-top: 2rem;
   background-color: hsl(0, 0%, 20%);
   border: solid 1px var(--quaternary-color);
@@ -251,4 +273,33 @@ header {
   }
 }
 
+.fifth-content {
+  margin-bottom: 2rem;
+  ul {
+    list-style: var(--list-style-none);
+    justify-content: center;
+    gap: 1rem;
+    display: flex;
+    margin-top: 2rem;
+    & li {
+      width: 10rem;
+      background: var(--light-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: var(--standard-border-radius);
+      & p {
+        background-color: var(--secondary-color);
+        width: 100%;
+        text-align: center;
+        border-radius: 0 0 1rem 1rem;
+      }
+      & img {
+        width: 5rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+}
 //description page
