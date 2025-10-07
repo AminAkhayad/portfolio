@@ -1,5 +1,5 @@
 
-import './App.css'
+import './styles/App.css'
 
 function App() {
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <h1>My Portfolio</h1>
       <p>Welcome to my portfolio website!</p>
+      <p><Link to="/about">About Me</Link></p>
     </>
   )
 }
