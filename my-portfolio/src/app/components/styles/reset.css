@@ -32,7 +32,6 @@ html {
   5. Improve text rendering
 */
 body {
-  min-height: 100%;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -71,7 +70,9 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-
+a {
+  color: white;
+}
 ul {
   list-style-type: none;
   padding: 0;

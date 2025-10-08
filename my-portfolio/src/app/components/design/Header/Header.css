@@ -1,0 +1,19 @@
+header {
+    background : #1c1a19;
+    width: 90%;
+    padding: 1rem 2rem;
+    display: inline-block;
+    nav {
+        margin: 0 auto;
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            li {
+                a {
+                    
+                }
+            }
+        }
+    }
+}
