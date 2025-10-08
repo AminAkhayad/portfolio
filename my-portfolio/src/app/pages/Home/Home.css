@@ -1,4 +1,7 @@
 .home-container {
+    display: flex;
+    gap: 6rem;
+    margin-top: 2rem;
     &.container {
         width: 95%;
         margin: 0 auto;

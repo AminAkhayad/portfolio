@@ -6,7 +6,7 @@ const Home = () => {
         <div className="home-container container">
             <ProfileCard />
                 <section className="hero-section">
-
+                    <h1>Wie ben ik ?</h1>
                 </section>
         </div>
     );

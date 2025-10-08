@@ -1,0 +1,14 @@
+h1 {
+    font-family: 'BBH Sans Bogle', sans-serif;
+}
+
+
+@font-face {
+    font-family: 'BBH Sans Bogle';
+    src: url('../../../assets/fonts/BBHSansBogle-Regular.woff2') format('woff2'),
+        url('../../../assets/fonts/BBHSansBogle-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
