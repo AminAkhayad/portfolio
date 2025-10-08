@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-      cursor: url('./assets/custom-cursor.svg') 4 4, auto;
+  cursor: url('./assets/custom-cursor.svg') 4 4, auto;
 
 }
 

@@ -1,17 +1,50 @@
 header {
-    background : #1c1a19;
-    width: 90%;
-    padding: 1rem 2rem;
-    display: inline-block;
+    margin: 0 auto;
+    width: 20rem;
+    padding: 1rem 0;
+
     nav {
-        margin: 0 auto;
+        background: #1c1a19;
+        padding: 1rem 2rem;
+        display: inline-block;
+
         ul {
-            display: flex;
-            align-items: center;
-            gap: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+
             li {
+                position: relative;
+
                 a {
-                    
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                transition: all 0.3s ease;
+
+                img {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+
+                span {
+                    position: absolute;
+                    top: 2rem;
+                    opacity: 0;
+                    transform: translateY(0);
+                    background: #1c1a19;
+                    color: white;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 0.25rem;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                }
+
+                    &:hover span {
+                        opacity: 1;
+                        transform: translateY(1rem);
+                    }
                 }
             }
         }
