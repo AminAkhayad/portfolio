@@ -1,11 +1,13 @@
 import { Link, Outlet  } from "react-router-dom";
-
+import "./Home.css";
+import ProfileCard from "../../components/design/Profile-card/Profile-card";
 const Home = () => {
     return (
-        <div>
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is the home page of my portfolio website.</p>
-            <p><Link to="/about">About</Link></p>
+        <div className="home-container container">
+            <ProfileCard />
+                <section className="hero-section">
+
+                </section>
         </div>
     );
 };

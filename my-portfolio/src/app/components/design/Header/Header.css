@@ -2,12 +2,19 @@ header {
     margin: 0 auto;
     width: 20rem;
     padding: 1rem 0;
-
+    display: flex;
+    justify-content: center;
     nav {
+        border:solid 2px transparent;
+        transition: border-color 0.3s ease;
+        border-radius: 10px;
         background: #1c1a19;
         padding: 1rem 2rem;
         display: inline-block;
-
+        &:hover {
+            border-color: white;
+            transition: border-color 0.3s ease;
+        }
         ul {
         display: flex;
         align-items: center;
