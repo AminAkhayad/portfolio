@@ -20,7 +20,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/portfolio" }
+  { basename: "/portfolio/" }
 )
 
 createRoot(document.getElementById('root')).render(
