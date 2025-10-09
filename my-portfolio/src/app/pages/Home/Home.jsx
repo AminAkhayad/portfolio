@@ -1,45 +1,12 @@
 import { Link  } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import asteriskIcon from '../../../assets/asterisk.svg'
 
 import "./Home.css";
 import ProfileCard from "../../components/design/Profile-card/Profile-card";
 const Home = () => {
-    const [loading, setLoading] = useState(true);
-    const nameRef = useRef(null);
-    const overlayRef = useRef(null);
-     useEffect(() => {
-    if (!loading) return;
-
-    const tl = gsap.timeline({
-      onComplete: () => setLoading(false),
-    });
-
-    // Naam fade in
-    tl.fromTo(
-      nameRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
-    )
-      // even laten staan
-      .to(nameRef.current, { opacity: 1, duration: 0.8 })
-      // fade out + overlay verdwijnt
-      .to(overlayRef.current, {
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.inOut",
-      });
-
-    return () => tl.kill();
-  }, [loading]);
     return (
         <div className="home-container container">
-            {loading && (
-        <div ref={overlayRef} className="loading-overlay">
-          <h1 ref={nameRef}>Amin Akhayad</h1>
-        </div>
-      )}
+            
                     <section className="hero-section">
                         <ProfileCard />
                         <div className="hero-description">
