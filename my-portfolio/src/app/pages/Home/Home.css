@@ -5,5 +5,37 @@
     &.container {
         width: 95%;
         margin: 0 auto;
+        justify-content: center;
+        .home-content {
+            .hero-section {
+                width: auto;
+                p {
+                    margin-top: 1rem;
+                    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+                    font-weight: 500;
+                    font-size: 1.12rem;
+                    width: 49rem;
+                    a {
+                        text-decoration: underline;
+                    }
+                    
+                }
+            }
+            .tech-section {
+                h2 {
+                    display: flex;
+                    align-items: center;
+                        font-family: 'BBH Sans Bogle', sans-serif;
+                    font-size: 3rem;
+                    img {
+                        width: 2rem;
+                        height: 2rem;
+                        margin-right: 0.5rem;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        
     }
 }

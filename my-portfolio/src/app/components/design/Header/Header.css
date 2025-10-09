@@ -4,6 +4,7 @@ header {
     padding: 1rem 0;
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
     nav {
         border:solid 2px transparent;
         transition: border-color 0.3s ease;

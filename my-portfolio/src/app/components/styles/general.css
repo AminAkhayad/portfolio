@@ -1,12 +1,29 @@
 h1 {
     font-family: 'BBH Sans Bogle', sans-serif;
+    font-size: 3rem;
 }
+body {
+    &::selection {
+        background-color: #ffb400;
+        color: white;
+    }
+    scroll-behavior: smooth;
 
+}
 
 @font-face {
     font-family: 'BBH Sans Bogle';
     src: url('../../../assets/fonts/BBHSansBogle-Regular.woff2') format('woff2'),
         url('../../../assets/fonts/BBHSansBogle-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Black Han Sans';
+    src: url('../../../assets/fonts/BlackHanSans-Regular.woff2') format('woff2'),
+        url('../../../assets/fonts/BlackHanSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
