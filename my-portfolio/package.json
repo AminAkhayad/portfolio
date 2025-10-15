@@ -9,10 +9,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "postbuild": "powershell -Command \"Copy-Item dist/index.html dist/404.html\"",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@tanstack/react-query": "^5.90.2",
     "gsap": "^3.13.0",
     "react": "^19.1.1",

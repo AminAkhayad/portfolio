@@ -2,9 +2,24 @@
     display: flex;
     gap: 6rem;
     margin-top: 2rem;
+    .intro {
+        position: fixed;
+        inset: 0;
+        background: #0e0e0f;
+        display: grid;
+        place-items: center;
+        z-index: 9999;
+        p {
+            font-size: clamp(2rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+    }
+    
     
     &.container {
-        width: 95%;
+        width: 80%;
         margin: 0 auto;
         justify-content: center;
         flex-direction: column;
@@ -34,7 +49,7 @@
                     display: flex;
                     align-items: center;
                         font-family: 'BBH Sans Bogle', sans-serif;
-                    font-size: 3rem;
+                    font-size: 5rem;
                     img {
                         width: 2rem;
                         height: 2rem;
@@ -43,10 +58,60 @@
 
                     }
                 }
+                .tech-category {                        
+                    border-bottom: 1px solid #3a3a3a;
+                    margin-top: 2rem;
+                    padding-bottom: 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    h2 {
+                        font-size: 4rem;
+                    }
+                    .tech-items {
+                        display: flex;
+                        gap: 1rem;
+                        flex-wrap: wrap;
+                        .tech-item-card {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0.5rem;
+                            img {
+                                width: 6rem;
+                                border-radius: 0.5rem;
+                            }
+                        }
+                    }
+                }
             }
         }
         
     
+}
+.scroll-progress {
+  position: fixed;
+  right: 16px;           /* afstand van rechterrand */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;            /* dikte van de bar */
+  height: 120px;         /* lengte van de bar */
+  background: #2b2b2b;   /* track kleur (donker) */
+  border-radius: 9999px; /* ronde uiteinden */
+  overflow: hidden;      /* zodat het groen in de capsule blijft */
+  z-index: 10000;        /* boven je intro */
+}
+
+/* Groene vulling die meegroeit met scroll */
+.scroll-progress__bar {
+  position: absolute;
+  inset: 0 0 auto 0;     /* start bovenaan */
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);  /* begint leeg */
+  transform-origin: top; /* vult van boven naar beneden */
+  background: #00ff99;
+  border-radius: inherit; /* ronde uiteinden behouden */
 }
 
 @keyframes spin {

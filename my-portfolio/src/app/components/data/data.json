@@ -1,0 +1,24 @@
+{
+  "frontend": [
+    { "name": "Angular", "icon": "tech-icons/angular.png" },
+    { "name": "React", "icon": "tech-icons/react.svg" },
+    { "name": "TypeScript", "icon": "tech-icons/typescript.svg" },
+    { "name": "GSAP", "icon": "tech-icons/gsap.png" },
+    { "name": "Bootstrap", "icon": "tech-icons/bootstrap.svg" }
+  ],
+  "backend": [
+    { "name": "PHP", "icon": "tech-icons/php.svg" },
+    { "name": "Node.js", "icon": "tech-icons/nodejs.svg" },
+    { "name": "Express.js", "icon": "tech-icons/express.svg" },
+    { "name": "Laravel", "icon": "tech-icons/laravel.svg" },
+    { "name": "Craft CMS", "icon": "tech-icons/craftcms.svg" }
+  ],
+  "database": [
+    { "name": "MySQL", "icon": "tech-icons/mysql.png" }
+  ],
+  "tools": [
+    { "name": "Git", "icon": "tech-icons/git.svg" },
+    { "name": "VS Code", "icon": "tech-icons/vscode.svg" },
+    { "name": "Figma", "icon": "tech-icons/figma.svg" }
+  ]
+}

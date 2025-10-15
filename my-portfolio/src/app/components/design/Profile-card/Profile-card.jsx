@@ -3,6 +3,7 @@ import profileIcon from '../../../../assets/amin.jpg'
 import { Link } from 'react-router-dom';
 import githubIcon from '../../../../assets/github.svg';
 import linkedinIcon from '../../../../assets/linkedIn.svg';
+
 const ProfileCard = () => {
     return (
         <div className="profile-card">
