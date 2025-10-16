@@ -85,6 +85,56 @@
                     }
                 }
             }
+            .contact-section {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                display: flex;
+                .contact-heading {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    font-size: clamp(2.2rem, 6vw, 4.5rem);
+                    font-weight: 800;
+                    letter-spacing: 0.02em;
+                    line-height: 1.1;
+                    z-index: 1;
+                    .divider {
+                        width: clamp(60px, 12vw, 120px);
+                        height: 2px;
+                        background: rgba(255, 255, 255, 0.6);
+                        display: inline-block;
+                        transform: translateY(2px);
+                    }
+                    .blob-ring {
+                        position: absolute;
+                        top: 50%;          
+                        left: 50%;
+                        width: clamp(260px, 40vw, 520px);
+                        height: auto;
+                        color: rgba(255, 255, 255, 0.22);
+                        filter: drop-shadow(0 0 14px rgba(0, 255, 153, 0.1));
+                        pointer-events: none;
+                        transform: translate(-50%, -50%);
+                        z-index: -1;      
+                    }
+                }
+                justify-content: space-between;
+                  overflow: hidden; 
+                  position: relative;
+                h2 {
+                    display: flex;
+                    align-items: center;
+                    font-size: clamp(2.2rem, 6vw, 4.5rem);
+                    font-weight: 800;
+                    letter-spacing: 0.02em;
+                    line-height: 1.1;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                      z-index: 2; 
+                }
+            }
         }
         
     

@@ -14,6 +14,7 @@
     "predeploy": "npm run build"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@gsap/react": "^2.1.2",
     "@tanstack/react-query": "^5.90.2",
     "gsap": "^3.13.0",

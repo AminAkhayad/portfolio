@@ -3,7 +3,7 @@ import asteriskIcon from '../../../assets/asterisk.svg'
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import ContactForm from "../../components/functional/Contact-form/Contact-form";
 import "./Home.css";
 import ProfileCard from "../../components/design/Profile-card/Profile-card";
 import data from "../../components/data/data.json";
@@ -30,6 +30,8 @@ const Home = () => {
       ease: "power2.inOut",
       onComplete: () => {
         document.querySelector(".intro").style.display = "none";
+            ScrollTrigger.refresh(); // ← voeg deze toe
+
       },
     });
     ScrollTrigger.create({
@@ -39,6 +41,23 @@ const Home = () => {
         gsap.set(".scroll-progress__bar", { scaleY: self.progress });
       },
     });
+    gsap.to(".blob-ring", {
+  rotation: 360,
+  duration: 40,
+  ease: "none",
+  repeat: -1,
+  transformOrigin: "50% 50%",
+  transformBox: "fill-box",
+});
+gsap.to(".blob-ring", {
+  scale: 1.05,
+  duration: 3,
+  yoyo: true,
+  repeat: -1,
+  ease: "sine.inOut",
+  transformOrigin: "50% 50%",
+  transformBox: "fill-box",
+});
   });
 
     return (
@@ -78,7 +97,25 @@ const Home = () => {
                             </div>
                           </div>
                         ))}
+                    </section>
+                    <section className="contact-section">
+                      <ContactForm />
 
+                      <h2 className="contact-heading">
+                        <svg className="blob-ring" viewBox="0 0 600 600" aria-hidden="true">
+                          <path
+                            d="M426.5,320.5Q419,441,300,455.5Q181,441,123.5,350.5Q66,260,141.5,176.5Q217,93,326,120Q435,147,438,243.5Q434,320,426.5,320.5Z"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+
+                        <span>Stuur</span>
+                        <span className="divider" />
+                        <span>een bericht</span>
+                      </h2>
                     </section>
         </div>
     );

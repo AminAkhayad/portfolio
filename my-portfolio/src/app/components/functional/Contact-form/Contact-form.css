@@ -1,0 +1,59 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'BBH Sans Bogle', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  position: relative;
+
+  .contact-item {
+    position: relative;
+    width: 25rem;
+
+    input,
+    textarea {
+      background-color: #151312;
+      border: none;
+      border-bottom: 2px solid #fff;
+      width: 100%;
+      color: #fff;
+      transition: border-color 0.25s;
+      padding: 1.2rem 0 0.6rem; // ruimte boven voor label
+      resize: none;
+
+      &:focus {
+        outline: none;
+        border-bottom-color: #ffb400;
+      }
+
+      // label omhoog bij focus
+      &:focus + label {
+        top: 0;
+        transform: translateY(-0.6rem) scale(0.8);
+        color: #ffb400;
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      transition: transform 0.2s ease, color 0.2s ease, top 0.2s ease;
+      transform-origin: left top;
+    }
+
+    &.filled {
+      label {
+        top: 0;
+        transform: translateY(-0.6rem) scale(0.8);
+        color: #ffb400;
+      }
+    }
+  }
+}
