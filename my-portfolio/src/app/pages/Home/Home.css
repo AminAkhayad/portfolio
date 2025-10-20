@@ -27,22 +27,47 @@
                 width: auto;
                 display: flex;
                 gap: 4rem;
-                align-items: center;
-                justify-content: center;
                 .hero-description {
+                    h1 {
+                        font-size: 5.2rem;
+                        line-height: .45;
+                        letter-spacing: 0.02em;
+                        span {
+                            margin-left:5rem
+                        }
+                    }
                     p {
-                        margin-top: 1rem;
+                        margin-top: 3rem;
                         font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
                         font-weight: 500;
-                        font-size: 1.12rem;
+                        font-size: 1.3rem;
                         width: 49rem;
-                        a {
-                            text-decoration: underline;
-                        }
                     
                     }
+                    ul {
+                        display: flex;
+                        align-items: center;
+                        margin-top: 2rem;
+                        li {
+                            a {
+                                img {
+                                    width: 4rem;
+                                    padding: 0.6rem;
+                                }
+                            }
+                        }
+                    }
+                    h2 {
+                        font-size: 5rem;
+                        font-family: 'BBH Sans Bogle', sans-serif;
+                    }
                 }
-                
+                figure {
+                    img {
+                        width: 26rem;
+                        border-radius: 0.5rem;
+                    }
+                }
             }
             .tech-section {
                 h2 {
@@ -87,7 +112,7 @@
             }
             .contact-section {
                 padding-top: 2rem;
-                padding-bottom: 2rem;
+                padding-bottom: 4rem;
                 display: flex;
                 .contact-heading {
                     position: relative;
@@ -120,8 +145,8 @@
                     }
                 }
                 justify-content: space-between;
-                  overflow: hidden; 
-                  position: relative;
+                overflow: hidden; 
+                position: relative;
                 h2 {
                     display: flex;
                     align-items: center;
@@ -132,7 +157,7 @@
                     display: flex;
                     align-items: center;
                     gap: 1rem;
-                      z-index: 2; 
+                    z-index: 2; 
                 }
             }
         }

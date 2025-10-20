@@ -5,8 +5,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContactForm from "../../components/functional/Contact-form/Contact-form";
 import "./Home.css";
+import profileIcon from '../../../assets/amin.jpg'
 import ProfileCard from "../../components/design/Profile-card/Profile-card";
 import data from "../../components/data/data.json";
+import githubIcon from '../../../assets/github.svg';
+import linkedinIcon from '../../../assets/linkedIn.svg';
+import Button from "../../components/design/Button/Button";
+
 const Home = () => {
     gsap.registerPlugin(ScrollTrigger);
     useGSAP(() => {
@@ -69,18 +74,26 @@ gsap.to(".blob-ring", {
                 <p>AMIN.AKHAYAD</p>
           </div>
                     <section className="hero-section">
-                        <ProfileCard />
                         <div className="hero-description">
-                            <h1>Wie ben ik ?</h1>
+                            <h1>Ik ben Amin Akhayad <br /><br /><span>een full-stack developer</span></h1>
                             <p>
-                                Mijn naam is Amin Akhayad, ik ben een full-stack developer met een passie voor het bouwen van webapplicaties.<br /><br />
-                                Mijn interesse in technologie begon al op jonge leeftijd; ik vond het altijd leuk om met computers te werken. Daarom ben ik gestart met de opleiding Programmeren aan de Arteveldehogeschool.<br /><br />
-                                Tijdens mijn studies heb ik kennis opgedaan van verschillende programmeertalen en frameworks, waaronder <strong>HTML, CSS, JavaScript, PHP, React, Next.js, Node.js, Svelte, GSAP</strong> en <strong>Handlebars</strong>. Daarnaast heb ik ook ervaring met <strong>C#</strong>, <strong>MySQL</strong>, <strong>Figma</strong> en <strong>Adobe Photoshop</strong>.<br /><br />
-                                Ik heb geleerd hoe ik efficiënt kan samenwerken binnen een team en projecten kan beheren van begin tot eind. Na het afronden van mijn opleiding besloot ik mijn carrière als developer verder uit te bouwen.<br /><br />
-                                Ik ben sterk gemotiveerd om mijn vaardigheden voortdurend te verbeteren en ga graag nieuwe uitdagingen aan.<br />
-                                Wil je meer te weten komen over mijn ervaring en projecten? Bezoek dan mijn <Link to="/about">Over mij</Link>-pagina.
+                              Welkom op mijn portfolio! Hier deel ik mijn passie en vaardigheden op het gebied van webontwikkeling. 
+                              <br /><br /> 
+                              Als full-stack developer streef ik ernaar om oplossingen te creëren die niet alleen functioneel, maar ook visueel aantrekkelijk zijn. 
+                              Ik vind het belangrijk dat een website niet alleen goed werkt, maar ook een fijne ervaring biedt voor de gebruiker.
+                              <br /><br />
+                              Bekijk mijn avontuur van hoe en waarom ik er van hou om websites op te bouwen. <br />
+                              <Button to="/about">Lees meer</Button>
                             </p>
+                            <h2>Socials</h2>
+                            <ul>
+                              <li><Link to="https://twitter.com/aminakhayad" target="_blank" rel="noopener noreferrer"><img src={githubIcon} alt="Twitter" /></Link></li>
+                              <li><Link to="https://www.linkedin.com/in/amin-akhayad-1b60a62b5" target="_blank"><img src={linkedinIcon} alt="LinkedIn" /></Link></li>
+                            </ul>
                         </div>
+                        <figure>
+                            <img src={profileIcon} alt="Amin Akhayad" />
+                        </figure>
                     </section>
                     <section className="tech-section">
                         <h2><img src={asteriskIcon} alt="Asterisk icon" />Mijn Tech stack</h2>

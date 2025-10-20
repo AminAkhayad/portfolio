@@ -19,7 +19,7 @@
       width: 100%;
       color: #fff;
       transition: border-color 0.25s;
-      padding: 1.2rem 0 0.6rem; // ruimte boven voor label
+      padding: 1.2rem 0 0.6rem; 
       resize: none;
 
       &:focus {
@@ -27,7 +27,6 @@
         border-bottom-color: #ffb400;
       }
 
-      // label omhoog bij focus
       &:focus + label {
         top: 0;
         transform: translateY(-0.6rem) scale(0.8);

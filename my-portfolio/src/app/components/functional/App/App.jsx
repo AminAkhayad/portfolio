@@ -1,4 +1,4 @@
-
+import Footer from '../../design/Footer/Footer.jsx';
 import './App.css'
 import '../../styles/general.css'
 import '../../styles/reset.css'
@@ -11,6 +11,7 @@ function App() {
     <>
       <Header />
             <Outlet />
+      <Footer />
     </>
   )
 }
