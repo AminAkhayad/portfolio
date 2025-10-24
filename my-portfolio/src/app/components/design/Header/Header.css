@@ -5,6 +5,10 @@ header {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
     nav {
         border:solid 2px transparent;
         transition: border-color 0.3s ease;
