@@ -8,8 +8,6 @@ import "./Home.css";
 import profileIcon from "../../../assets/amin.jpg";
 import ProfileCard from "../../components/design/Profile-card/Profile-card";
 import data from "../../components/data/data.json";
-import githubIcon from "../../../assets/github.svg";
-import linkedinIcon from "../../../assets/linkedIn.svg";
 import Button from "../../components/design/Button/Button";
 import carIcon from "../../../assets/car.gif";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
@@ -17,10 +15,8 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 const Home = () => {
   gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin);
   useGSAP(() => {
-    // Timeline animatie voor de intro
     const tl = gsap.timeline();
 
-    // Naam fade in
     tl.from(".intro p", {
       opacity: 0,
       y: 80,
@@ -28,7 +24,6 @@ const Home = () => {
       ease: "power3.out",
     });
 
-    // Fade out + naar boven
     tl.to(".intro", {
       opacity: 0,
       y: -50,
@@ -37,7 +32,7 @@ const Home = () => {
       ease: "power2.inOut",
       onComplete: () => {
         document.querySelector(".intro").style.display = "none";
-        ScrollTrigger.refresh(); // ← voeg deze toe
+        ScrollTrigger.refresh();
       },
     });
     ScrollTrigger.create({
@@ -64,46 +59,61 @@ const Home = () => {
       transformOrigin: "50% 50%",
       transformBox: "fill-box",
     });
-    gsap.set("#morph", {  transformOrigin: "center" });
+    gsap.set("#morph", { transformOrigin: "center" });
 
     gsap
-      .timeline({ repeat: -1, defaults: { duration: 1.4, ease: "sine.inOut"} })
-      .to("#morph", { morphSVG: "#shape-x", rotation: "+=90", transformOrigin: "center center" })
-      .to("#morph", { morphSVG: "#shape-triangle", rotation: "+=90", transformOrigin: "center center" })
-      .to("#morph", { morphSVG: "#shape-square", rotation: "+=90", transformOrigin: "center center" })
-      .to("#morph", { morphSVG: "#shape-circle", rotation: "+=90", transformOrigin: "center center" });
+      .timeline({ repeat: -1, defaults: { duration: 1.4, ease: "sine.inOut" } })
+      .to("#morph", {
+        morphSVG: "#shape-x",
+        rotation: "+=90",
+        transformOrigin: "center center",
+      })
+      .to("#morph", {
+        morphSVG: "#shape-triangle",
+        rotation: "+=90",
+        transformOrigin: "center center",
+      })
+      .to("#morph", {
+        morphSVG: "#shape-square",
+        rotation: "+=90",
+        transformOrigin: "center center",
+      })
+      .to("#morph", {
+        morphSVG: "#shape-circle",
+        rotation: "+=90",
+        transformOrigin: "center center",
+      });
     gsap
       .timeline({ repeat: -1 })
       .set(".words", { xPercent: -100 })
       .to(".words", { xPercent: 100, duration: 12, ease: "none" });
 
-      gsap.utils.toArray(".tech-category").forEach((el) => {
-  gsap.from(el, {
-    x: -80,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: el,
-      start: "top 85%",
-      toggleActions: "play none none reverse", // opnieuw afspelen bij omhoog scrollen
-    },
-  });
-});
-gsap.utils.toArray(".tech-category > h2").forEach((el) => {
-  gsap.from(el, {
-    x: -80,
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: el,
-      start: "top 85%",
-      toggleActions: "play none none reverse", // replay bij terugscroll
-    },
-  });
-});
-
+    gsap.utils.toArray(".tech-category").forEach((el) => {
+      gsap.from(el, {
+        x: -80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+    gsap.utils.toArray(".tech-category > h2").forEach((el) => {
+      gsap.from(el, {
+        x: -80,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
   });
   return (
     <div className="home-container container">
