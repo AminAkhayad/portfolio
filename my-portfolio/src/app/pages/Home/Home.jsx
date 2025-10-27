@@ -6,9 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ContactForm from "../../components/functional/Contact-form/Contact-form";
 import "./Home.css";
 import profileIcon from "../../../assets/amin.jpg";
-import ProfileCard from "../../components/design/Profile-card/Profile-card";
 import data from "../../components/data/data.json";
-import Button from "../../components/design/Button/Button";
 import carIcon from "../../../assets/car.gif";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 

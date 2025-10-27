@@ -40,9 +40,7 @@
           align-items: center;
           margin: 0 auto;
           margin-top: 4rem;
-          span {
-            margin-left: 2.3rem;
-          }
+          
         }
         p {
           margin-top: 3rem;
@@ -339,7 +337,7 @@
 
     &.container {
       width: 92%;
-      padding-top: 13rem;
+      padding-top: 14rem;
       .intro {
         p {
           font-size: clamp(1.6rem, 10vw, 2.6rem);
@@ -401,6 +399,7 @@
       }
 
       .tech-section {
+        margin-top: 2rem;
         > h2 {
         font-size: 3rem;
         }

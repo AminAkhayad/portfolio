@@ -1,0 +1,78 @@
+/* global bits zoals in je inspiratie */
+html, body {
+  width: 100%;
+  overscroll-behavior: none;
+  min-height: 100%;
+}
+body::-webkit-scrollbar { display: none; }
+
+.about-container {
+  display: flex;
+  gap: 6rem;
+  width: 80%;
+  margin: 2rem auto 0;
+  justify-content: center;
+  flex-direction: column;
+
+  .intro {
+    position: fixed;
+    inset: 0;
+    background: #0e0e0f;
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+
+    p {
+      font-size: clamp(2rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+  }
+
+  &.container {
+    h1 { margin-top: 6rem; }
+
+    .hero-line-container,
+    .hero-images-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100vh;
+      margin: 0 auto;
+
+      .line { border-right: 1px solid black; }
+
+      .img {
+        width: 100%;
+        height: 700px; /* zoals je inspiratie; kies zelf 100vh of 700px */
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* z-index: -1;  // haal dit weg als het onder andere lagen verdwijnt */
+
+        /* precies zoals je inspiratie, genest en met :nth-of-type */
+        &:nth-of-type(1) { background-image: url('/assets/gent-first.jpg'); }
+        &:nth-of-type(2) { background-image: url('/assets/gent-second.jpeg'); }
+        &:nth-of-type(3) { background-image: url('/assets/gent-third.jpg'); }
+        &:nth-of-type(4) { background-image: url('/assets/gent-fourth.jpeg'); }
+        &:nth-of-type(5) { background-image: url('/assets/gent-fifth.jpeg'); }
+        &:nth-of-type(6) { background-image: url('/assets/gent-sixth.jpeg'); }
+
+        &::before {
+          content: '';
+          position: absolute;
+          height: 100vh;
+          width: 100%;
+          z-index: 4;
+          top: 0;
+          left: 0;
+          border-right: 1px solid black;
+        }
+      }
+    }
+
+    .gallery { height: 200vh; }
+  }
+}
