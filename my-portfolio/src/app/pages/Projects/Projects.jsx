@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
+import repoData from "../../../app/components/data/repo.json";
 import "./Projects.css";
 
 const Projects = () => {
@@ -12,15 +13,12 @@ const Projects = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-
     tl.from(".intro p", {
       opacity: 0,
       y: 80,
       duration: 1,
       ease: "power3.out",
-    });
-
-    tl.to(".intro", {
+    }).to(".intro", {
       opacity: 0,
       y: -50,
       duration: 1,
@@ -32,15 +30,34 @@ const Projects = () => {
         ScrollTrigger.refresh();
       },
     });
-
     ScrollTrigger.create({
       start: 0,
       end: () => document.documentElement.scrollHeight - window.innerHeight,
-      onUpdate: (self) => {
-        gsap.set(".scroll-progress__bar", { scaleY: self.progress });
-      },
+      onUpdate: (self) =>
+        gsap.set(".scroll-progress__bar", { scaleY: self.progress }),
     });
   });
+
+  // laad alle assets inclusief mp4/webm
+  const assetMap = useMemo(() => {
+    const mods = import.meta.glob(
+      "../../../assets/**/*.{png,jpg,jpeg,webp,svg,mp4,webm}",
+      { eager: true }
+    );
+    return Object.fromEntries(
+      Object.entries(mods).map(([k, v]) => [k, v.default])
+    );
+  }, []);
+
+  const customImgById = useMemo(() => {
+    const m = new Map();
+    repoData.forEach((item) => {
+      const resolvedImg = assetMap[item.img] || item.img;
+      const resolvedVideo = assetMap[item.demo] || item.demo;
+      m.set(item.id, { img: resolvedImg, video: resolvedVideo });
+    });
+    return m;
+  }, [assetMap]);
 
   useEffect(() => {
     fetch("https://api.github.com/users/AminAkhayad/repos?sort=updated")
@@ -70,28 +87,82 @@ const Projects = () => {
           <p>Loading projects...</p>
         ) : (
           <div className="repo-grid">
-            {repos.map((repo) => (
-              <div key={repo.id} className="repo-card">
-                <h2>
-                  <a href={repo.html_url} target="_blank" rel="noreferrer">
-                    {repo.name}
-                  </a>
-                </h2>
-                {repo.description && <p>{repo.description}</p>}
+            {repos.map((repo) => {
+              const media = customImgById.get(repo.id) || {};
+              const og = repo.open_graph_image_url;
+              const generated = `https://opengraph.githubassets.com/1/${repo.owner.login}/${repo.name}`;
+              const preview = media.img || og || generated;
+              const href = repo.homepage || repo.html_url;
 
-                <div className="repo-meta">
-                  {repo.language && <span>{repo.language}</span>}
-                  {typeof repo.stargazers_count === "number" && (
-                    <span>★ {repo.stargazers_count}</span>
-                  )}
-                  {repo.homepage && (
-                    <a href={repo.homepage} target="_blank" rel="noreferrer">
-                      Live Demo
+              return (
+                <article
+                  key={repo.id}
+                  className="repo-card"
+                  onMouseEnter={(e) => {
+                    const vid = e.currentTarget.querySelector(".repo-video");
+                    if (vid) {
+                      gsap.to(vid, {
+                        opacity: 1,
+                        duration: 0.4,
+                        ease: "power2.out",
+                        onStart: () => vid.play(),
+                      });
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    const vid = e.currentTarget.querySelector(".repo-video");
+                    if (vid) {
+                      gsap.to(vid, {
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                          vid.pause();
+                          vid.currentTime = 0;
+                        },
+                      });
+                    }
+                  }}
+                >
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="repo-preview-link"
+                  >
+                    <div className="media-wrapper">
+                      <img
+                        className="repo-preview"
+                        src={preview}
+                        alt={`${repo.name} preview`}
+                        loading="lazy"
+                      />
+                      {media.video && (
+                        <video
+                          className="repo-video"
+                          src={media.video}
+                          muted
+                          playsInline
+                          preload="metadata"
+                          style={{ opacity: 0 }}
+                        />
+                      )}
+                    </div>
+                  </a>
+
+                  <h2 className="repo-title">
+                    <a href={href} target="_blank" rel="noreferrer">
+                      {repo.name}
                     </a>
-                  )}
-                </div>
-              </div>
-            ))}
+                  </h2>
+
+                  <p className="repo-desc">{repo.description}</p>
+                  <div className="repo-meta">
+                    <span>{repo.language}</span>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         )}
       </section>
