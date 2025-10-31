@@ -10,7 +10,6 @@ function floatLabel(e) {
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("mvgwdlen");
 
-  // bij laden: zet .filled als er waarde/autofill is
   useEffect(() => {
     document.querySelectorAll(".contact-item input, .contact-item textarea").forEach((el) => {
       if (el.value.trim()) el.parentElement.classList.add("filled");

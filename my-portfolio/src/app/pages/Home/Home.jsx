@@ -40,23 +40,7 @@ const Home = () => {
         gsap.set(".scroll-progress__bar", { scaleY: self.progress });
       },
     });
-    gsap.to(".blob-ring", {
-      rotation: 360,
-      duration: 40,
-      ease: "none",
-      repeat: -1,
-      transformOrigin: "50% 50%",
-      transformBox: "fill-box",
-    });
-    gsap.to(".blob-ring", {
-      scale: 1.05,
-      duration: 3,
-      yoyo: true,
-      repeat: -1,
-      ease: "sine.inOut",
-      transformOrigin: "50% 50%",
-      transformBox: "fill-box",
-    });
+    
     gsap.set("#morph", { transformOrigin: "center" });
 
     gsap

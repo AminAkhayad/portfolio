@@ -460,7 +460,6 @@
         }
       }
 
-      /* Scroll progress (staat in je markup binnen .home-container) */
       .scroll-progress {
         right: 10px;
         width: 6px;
