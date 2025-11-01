@@ -17,10 +17,15 @@ import arrowIcon from "../../../assets/arrow-down.svg";
 const About = () => {
   const scope = useRef(null);
 
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    tl.from(".intro p", { opacity: 0, y: 80, duration: 1, ease: "power3.out" })
-      .to(".intro", {
+  useGSAP(
+    () => {
+      const tl = gsap.timeline();
+      tl.from(".intro p", {
+        opacity: 0,
+        y: 80,
+        duration: 1,
+        ease: "power3.out",
+      }).to(".intro", {
         opacity: 0,
         y: -50,
         duration: 1,
@@ -32,46 +37,69 @@ const About = () => {
           Promise.resolve().then(() => ScrollTrigger.refresh(true));
         },
       });
+      const items = gsap.utils.toArray(".images-grid li");
 
-    
-const mm = gsap.matchMedia();
-
-mm.add("(max-width: 768px)", () => {
-  const st = ScrollTrigger.create({
-    start: 0,
-    end: () => document.documentElement.scrollHeight - window.innerHeight,
-    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleX: self.progress, scaleY: 1 }),
-    invalidateOnRefresh: true,
-  });
-  return () => st.kill();
-});
-
-mm.add("(min-width: 769px)", () => {
-  const st = ScrollTrigger.create({
-    start: 0,
-    end: () => document.documentElement.scrollHeight - window.innerHeight,
-    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleY: self.progress, scaleX: 1 }),
-    invalidateOnRefresh: true,
-  });
-  return () => st.kill();
-});
-    const boxes = gsap.utils.toArray(".interest-list li");
-    gsap.set(boxes, { autoAlpha: 0 });
-    ScrollTrigger.create({
-      trigger: ".interest-list",
-      start: "top 85%",
-      once: true,
-      onEnter: () => {
-        gsap.to(boxes, {
-          autoAlpha: 1,
-          stagger: 0.12,
-          duration: 0.5,
-          ease: "power1.out",
-          overwrite: "auto",
+      items.forEach((item) => {
+        gsap.from(item, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
         });
-      },
-    });
-  }, { scope });
+      });
+      const mm = gsap.matchMedia();
+
+      mm.add("(max-width: 768px)", () => {
+        const st = ScrollTrigger.create({
+          start: 0,
+          end: () => document.documentElement.scrollHeight - window.innerHeight,
+          onUpdate: (self) =>
+            gsap.set(".scroll-progress__bar", {
+              scaleX: self.progress,
+              scaleY: 1,
+            }),
+          invalidateOnRefresh: true,
+        });
+        return () => st.kill();
+      });
+
+      mm.add("(min-width: 769px)", () => {
+        const st = ScrollTrigger.create({
+          start: 0,
+          end: () => document.documentElement.scrollHeight - window.innerHeight,
+          onUpdate: (self) =>
+            gsap.set(".scroll-progress__bar", {
+              scaleY: self.progress,
+              scaleX: 1,
+            }),
+          invalidateOnRefresh: true,
+        });
+        return () => st.kill();
+      });
+      const boxes = gsap.utils.toArray(".interest-list li");
+      gsap.set(boxes, { autoAlpha: 0 });
+      ScrollTrigger.create({
+        trigger: ".interest-list",
+        start: "top 85%",
+        once: true,
+        onEnter: () => {
+          gsap.to(boxes, {
+            autoAlpha: 1,
+            stagger: 0.12,
+            duration: 0.5,
+            ease: "power1.out",
+            overwrite: "auto",
+          });
+        },
+      });
+    },
+    { scope }
+  );
 
   return (
     <div ref={scope} className="about-container container">
@@ -86,15 +114,30 @@ mm.add("(min-width: 769px)", () => {
       <section className="hero-section">
         <h1>About Me</h1>
         <ul className="images-grid">
-          <li className="img"><img src={gentFourth} alt="Gent" /></li>
-          <li className="img"><img src={gentFifth} alt="Gent" /></li>
-          <li className="img"><img src={gentSixth} alt="Gent" /></li>
-          <li className="img"><img src={gentFirst} alt="Gent" /></li>
-          <li className="img"><img src={gentSecond} alt="Gent" /></li>
-          <li className="img"><img src={gentThird} alt="Gent" /></li>
+          <li className="img">
+            <img src={gentFourth} alt="Gent" />
+          </li>
+          <li className="img">
+            <img src={gentFifth} alt="Gent" />
+          </li>
+          <li className="img">
+            <img src={gentSixth} alt="Gent" />
+          </li>
+          <li className="img">
+            <img src={gentFirst} alt="Gent" />
+          </li>
+          <li className="img">
+            <img src={gentSecond} alt="Gent" />
+          </li>
+          <li className="img">
+            <img src={gentThird} alt="Gent" />
+          </li>
           <li className="banner">
             <h2>GENT</h2>
-            <p>Gent is de mooie stad waar ik geboren ben, en natuurlijk een van mijn favoriete steden om te bezoeken.</p>
+            <p>
+              Gent is de mooie stad waar ik geboren ben, en natuurlijk een van
+              mijn favoriete steden om te bezoeken.
+            </p>
           </li>
         </ul>
       </section>
@@ -117,10 +160,13 @@ mm.add("(min-width: 769px)", () => {
         <h2>CV</h2>
         <p>Je kunt meer te weten komen als je mijn cv bekijkt.</p>
         <div className="cv-actions">
-          <a href={CV_SRC} download>Download CV <img src={arrowIcon} alt="" /></a>
-          <a href={CV_SRC} target="_blank" rel="noreferrer">Open in nieuw tabblad</a>
+          <a href={CV_SRC} download>
+            Download CV <img src={arrowIcon} alt="" />
+          </a>
+          <a href={CV_SRC} target="_blank" rel="noreferrer">
+            Open in nieuw tabblad
+          </a>
         </div>
-        
       </section>
     </div>
   );

@@ -22,7 +22,7 @@ export default function ContactForm() {
       setShowForm(false);
       const timer = setTimeout(() => {
         setShowForm(true);
-        state.succeeded = false; // reset formspree state
+        state.succeeded = false; 
       }, 3000);
       return () => clearTimeout(timer);
     }
