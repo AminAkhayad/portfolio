@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import "./Contact-form.css";
 
@@ -9,6 +9,7 @@ function floatLabel(e) {
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm("mvgwdlen");
+  const [showForm, setShowForm] = useState(true);
 
   useEffect(() => {
     document.querySelectorAll(".contact-item input, .contact-item textarea").forEach((el) => {
@@ -16,7 +17,19 @@ export default function ContactForm() {
     });
   }, []);
 
-  if (state.succeeded) return <p>Thanks for joining!</p>;
+  useEffect(() => {
+    if (state.succeeded) {
+      setShowForm(false);
+      const timer = setTimeout(() => {
+        setShowForm(true);
+        state.succeeded = false; // reset formspree state
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [state.succeeded]);
+
+  if (!showForm)
+    return <p className="thankyou-message">Bedankt voor je bericht!</p>;
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
@@ -27,9 +40,10 @@ export default function ContactForm() {
           name="email"
           onInput={floatLabel}
           onBlur={floatLabel}
+          required
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
-        <label htmlFor="email">Email Address</label>
+        <label htmlFor="email">Email-adres</label>
       </div>
 
       <div className="contact-item">
@@ -38,12 +52,15 @@ export default function ContactForm() {
           name="message"
           onInput={floatLabel}
           onBlur={floatLabel}
+          required
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
         <label htmlFor="message">Bericht</label>
       </div>
 
-      <button type="submit" disabled={state.submitting}>Submit</button>
+      <button type="submit" disabled={state.submitting}>
+        {state.submitting ? "Versturen..." : "Verstuur"}
+      </button>
     </form>
   );
 }
