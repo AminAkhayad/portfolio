@@ -30,15 +30,29 @@ const Projects = () => {
         ScrollTrigger.refresh();
       },
     });
-    ScrollTrigger.create({
-      start: 0,
-      end: () => document.documentElement.scrollHeight - window.innerHeight,
-      onUpdate: (self) =>
-        gsap.set(".scroll-progress__bar", { scaleY: self.progress }),
-    });
+    const mm = gsap.matchMedia();
+
+mm.add("(max-width: 768px)", () => {
+  const st = ScrollTrigger.create({
+    start: 0,
+    end: () => document.documentElement.scrollHeight - window.innerHeight,
+    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleX: self.progress, scaleY: 1 }),
+    invalidateOnRefresh: true,
+  });
+  return () => st.kill();
+});
+
+mm.add("(min-width: 769px)", () => {
+  const st = ScrollTrigger.create({
+    start: 0,
+    end: () => document.documentElement.scrollHeight - window.innerHeight,
+    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleY: self.progress, scaleX: 1 }),
+    invalidateOnRefresh: true,
+  });
+  return () => st.kill();
+});
   });
 
-  // laad alle assets inclusief mp4/webm
   const assetMap = useMemo(() => {
     const mods = import.meta.glob(
       "../../../assets/**/*.{png,jpg,jpeg,webp,svg,mp4,webm}",

@@ -28,6 +28,7 @@
         margin-bottom: 2rem;
       }
       .repo-grid {
+        padding-bottom: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
@@ -59,6 +60,14 @@
             }
           }
           a {
+            margin-top: .7rem;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+            display: block;
+            &:hover {
+                color: #ffb400;
+                transition: color 0.3s ease;
+            }
             img {
               width: 100%;
             }
@@ -69,5 +78,50 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    &.container {
+       .scroll-progress{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 6px;
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;  
+
+.scroll-progress__bar{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffb400;
+  border-radius: 0;
+  transform-origin: left bottom;  
+  transform: scaleX(0);           
+}
+       }
+        .hero-section {
+        h1 {
+            margin-bottom: 1.25rem;
+          font-size: 4.4rem;
+          line-height: 1.15;
+        }
+      .repo-grid {
+        grid-template-columns: 1fr;
+        align-items: start;
+        .repo-card {
+          &:last-child {
+            grid-column: span 1;
+          }
+        }
+      }
+    }
+    }
+    
   }
 }
