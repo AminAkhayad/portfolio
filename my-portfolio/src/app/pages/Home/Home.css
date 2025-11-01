@@ -334,7 +334,27 @@
 @media (max-width: 640px) {
   .home-container {
     gap: 2rem;
+     .scroll-progress {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 6px;
+      z-index: 9999;
+      pointer-events: none;
+      background: transparent;
 
+      .scroll-progress__bar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #ffb400;
+        border-radius: 0;
+        transform-origin: left bottom;
+        transform: scaleX(0);
+      }
+    }
     &.container {
       width: 92%;
       padding-top: 14rem;
@@ -458,12 +478,6 @@
           width: 90%;
           border-radius: 0.5rem;
         }
-      }
-
-      .scroll-progress {
-        right: 10px;
-        width: 6px;
-        height: 90px;
       }
     }
   }

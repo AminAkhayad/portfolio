@@ -306,10 +306,12 @@
           align-items: center;
           gap: 1rem;
           margin-top: 1.5rem;
+          
 
           a {
             width: 80%;
             text-align: center;
+            justify
             font-size: 1rem;
             padding: 0.8rem 1rem;
           }
