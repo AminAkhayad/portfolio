@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: .4rem;
+            border-radius: 0.4rem;
             display: block;
           }
 
@@ -86,20 +86,20 @@
           align-items: center;
           padding: 1.2rem;
           color: #fff;
-          border-radius: .4rem;
+          border-radius: 0.4rem;
 
           h2 {
             font-size: clamp(2rem, 6vw, 4rem);
             font-family: "BBH Sans Bogle", sans-serif;
             text-align: center;
-            margin-bottom: .4rem;
+            margin-bottom: 0.4rem;
           }
 
           p {
             font-size: 1.1rem;
             text-align: center;
-            opacity: .9;
-            letter-spacing: .05em;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
             margin-bottom: 1rem;
           }
         }
@@ -117,13 +117,12 @@
         gap: 1rem;
         grid-auto-rows: 5rem 5rem 5rem;
         li {
-          font-family: 'BBH Sans Bogle', sans-serif;
+          font-family: "BBH Sans Bogle", sans-serif;
           font-size: 3.5rem;
           text-align: center;
           &:nth-child(odd) {
-          background-color: #f0f0f0;
-          color: black;
-          
+            background-color: #f0f0f0;
+            color: black;
           }
         }
       }
@@ -150,9 +149,9 @@
           background-color: white;
           color: black;
           padding: 1rem 2rem;
-          border-radius: .4rem;
-          font-family: 'Black Han Sans', sans-serif;
-          font-weight: normal;          
+          border-radius: 0.4rem;
+          font-family: "Black Han Sans", sans-serif;
+          font-weight: normal;
           transition: all 0.2s ease-in-out;
 
           img {
@@ -160,7 +159,7 @@
           }
           display: inline-flex;
           align-items: center;
-          gap: .6rem;
+          gap: 0.6rem;
           &:hover {
             background-color: #ffb400;
             box-shadow: -5px 6px 0px white;
@@ -172,11 +171,33 @@
     }
   }
 }
+
 @media (max-width: 640px) {
   .about-container {
+    .scroll-progress {
+      position: fixed;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 6px;
+      z-index: 9999;
+      pointer-events: none;
+      background: transparent;
+
+      .scroll-progress__bar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #ffb400;
+        border-radius: 0;
+        transform-origin: left bottom;
+        transform: scaleX(0);
+      }
+    }
     gap: 2rem;
     width: 92%;
-          padding-top: 14rem;
+    padding-top: 6rem;
 
     .intro {
       p {
@@ -191,8 +212,9 @@
 
         h1 {
           margin-bottom: 1.25rem;
-          font-size: clamp(1.8rem, 7vw, 2.4rem);
+          font-size: 4.4rem;
           line-height: 1.15;
+          margin-top: 0;
         }
 
         .images-grid {
@@ -210,7 +232,7 @@
               height: auto;
               aspect-ratio: 4 / 3;
               object-fit: cover;
-              border-radius: .4rem;
+              border-radius: 0.4rem;
               display: block;
             }
           }
@@ -218,81 +240,11 @@
           .banner {
             grid-column: 1;
             padding: 1.1rem 1rem;
-            border-radius: .4rem;
+            border-radius: 0.4rem;
 
             h2 {
-              font-size: clamp(1.4rem, 7vw, 2rem);
-              margin-bottom: .35rem;
-              text-align: center;
-            }
-            p {
-              font-size: 0.98rem;
-              line-height: 1.6;
-              letter-spacing: 0.02em;
-              text-align: center;
-              margin: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-
-
-
-@media (max-width: 640px) {
-  .about-container {
-    gap: 2rem;
-    width: 92%;
-    padding-top: 14rem;
-
-    .intro {
-      p {
-        font-size: clamp(1.6rem, 10vw, 2.6rem);
-        letter-spacing: 0.06em;
-      }
-    }
-
-    &.container {
-      .hero-section {
-        padding-bottom: 2rem;
-
-        h1 {
-          margin-bottom: 1.25rem;
-          font-size: clamp(1.8rem, 7vw, 2.4rem);
-          line-height: 1.15;
-        }
-
-        .images-grid {
-          grid-template-columns: 1fr;
-          grid-auto-rows: auto;
-          grid-auto-flow: row;
-          gap: 0.9rem;
-
-          li {
-            grid-column: auto !important;
-            grid-row: auto !important;
-
-            img {
-              width: 100%;
-              height: auto;
-              aspect-ratio: 4 / 3;
-              object-fit: cover;
-              border-radius: .4rem;
-              display: block;
-            }
-          }
-
-          .banner {
-            grid-column: 1;
-            padding: 1.1rem 1rem;
-            border-radius: .4rem;
-
-            h2 {
-              font-size: clamp(1.4rem, 7vw, 2rem);
-              margin-bottom: .35rem;
+              font-size: 4.4rem;
+              margin-bottom: 0.35rem;
               text-align: center;
             }
             p {
@@ -306,35 +258,38 @@
         }
       }
 
-      /* 📱 Mobile styling voor interest-section */
       .interest-section {
         h2 {
-          font-size: clamp(2rem, 10vw, 3rem);
+          font-size: 4.4rem;
           text-align: center;
+          line-height: 1;
           margin-bottom: 1rem;
         }
         .interest-list {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: .6rem;
+          gap: 0.6rem;
           grid-auto-rows: auto;
           margin-bottom: 2rem;
 
           li {
             font-size: 1.3rem;
-            padding: .9rem;
-            border-radius: .4rem;
+            padding: 0.9rem;
+            border-radius: 0.4rem;
             background: #f0f0f0;
+            color: black;
             text-align: center;
-            font-family: 'BBH Sans Bogle', sans-serif;
+            font-family: "BBH Sans Bogle", sans-serif;
+            &:last-child {
+              grid-column: 1 / span 2;
+            }
           }
         }
       }
 
-      /* 📱 Mobile styling voor cv-section */
       .cv-section {
         h2 {
-          font-size: clamp(2rem, 9vw, 3rem);
+          font-size: 4.4rem;
           text-align: center;
           margin-bottom: 1rem;
         }
@@ -356,7 +311,7 @@
             width: 80%;
             text-align: center;
             font-size: 1rem;
-            padding: .8rem 1rem;
+            padding: 0.8rem 1rem;
           }
         }
 
@@ -364,7 +319,7 @@
           height: 65vh;
           width: 100%;
           margin-top: 1rem;
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           overflow: hidden;
         }
       }

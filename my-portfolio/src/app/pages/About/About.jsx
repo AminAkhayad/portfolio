@@ -33,12 +33,28 @@ const About = () => {
         },
       });
 
-    ScrollTrigger.create({
-      start: 0,
-      end: () => document.documentElement.scrollHeight - window.innerHeight,
-      onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleY: self.progress }),
-    });
+    
+const mm = gsap.matchMedia();
 
+mm.add("(max-width: 768px)", () => {
+  const st = ScrollTrigger.create({
+    start: 0,
+    end: () => document.documentElement.scrollHeight - window.innerHeight,
+    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleX: self.progress, scaleY: 1 }),
+    invalidateOnRefresh: true,
+  });
+  return () => st.kill();
+});
+
+mm.add("(min-width: 769px)", () => {
+  const st = ScrollTrigger.create({
+    start: 0,
+    end: () => document.documentElement.scrollHeight - window.innerHeight,
+    onUpdate: (self) => gsap.set(".scroll-progress__bar", { scaleY: self.progress, scaleX: 1 }),
+    invalidateOnRefresh: true,
+  });
+  return () => st.kill();
+});
     const boxes = gsap.utils.toArray(".interest-list li");
     gsap.set(boxes, { autoAlpha: 0 });
     ScrollTrigger.create({
