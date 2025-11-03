@@ -330,7 +330,30 @@
   }
 }
 
-/* Mobiel */
+@media (max-width: 992px) {
+  .home-container {
+    &.container {
+      gap: 0;
+      .hero-section {
+        height: 97vh;
+        .hero-description {
+          h1 {
+            font-size: 11rem;
+            margin-top: 0rem;
+          }
+        }
+      }
+      .contact-section {
+        align-items: center;
+        .contact-heading {
+          font-size: 2.3rem;
+        }
+      }
+    }
+  }
+}
+
+// MOBILE
 @media (max-width: 640px) {
   .home-container {
     gap: 2rem;

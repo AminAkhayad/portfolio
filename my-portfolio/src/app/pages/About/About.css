@@ -172,6 +172,37 @@
   }
 }
 
+@media (max-width: 992px) {
+  .about-container {
+    &.container {
+      .hero-section {
+        h1 {
+          font-size: 11rem;
+        }
+        .images-grid {
+          .banner {
+            h2 {
+              font-size: 2.7rem;
+            }
+          }
+        }
+      }
+      .interest-section {
+        h2 {
+          font-size: 7.8rem;
+          text-align: center;
+        }
+      }
+      .cv-section {
+        h2 {
+          font-size: 7.8rem;
+        }
+    }
+  }
+  }
+}
+
+// MOBILE
 @media (max-width: 640px) {
   .about-container {
     .scroll-progress {

@@ -47,8 +47,8 @@ const About = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: item,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
+            start: "bottom 49%",
+            toggleActions: "play none none",
           },
         });
       });
