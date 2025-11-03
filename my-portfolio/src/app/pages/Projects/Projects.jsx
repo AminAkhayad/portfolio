@@ -108,7 +108,7 @@ const Projects = () => {
         {loading ? (
           <p>Loading projects...</p>
         ) : (
-          <div className="repo-grid">
+          <ul className="repo-grid">
             {repos.map((repo) => {
               const media = customImgById.get(repo.id) || {};
               const og = repo.open_graph_image_url;
@@ -117,7 +117,7 @@ const Projects = () => {
               const href = repo.homepage || repo.html_url;
 
               return (
-                <article
+                <li
                   key={repo.id}
                   className="repo-card"
                   onMouseEnter={(e) => {
@@ -182,10 +182,10 @@ const Projects = () => {
                   <div className="repo-meta">
                     <span>{repo.language}</span>
                   </div>
-                </article>
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
       </section>
     </div>

@@ -127,6 +127,7 @@
         grid-template-columns: 1fr;
         align-items: start;
         .repo-card {
+          list-style: bullets;
           &:last-child {
             grid-column: span 1;
           }
