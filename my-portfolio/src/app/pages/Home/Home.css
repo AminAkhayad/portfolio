@@ -353,7 +353,6 @@
   }
 }
 
-// MOBILE
 @media (max-width: 640px) {
   .home-container {
     gap: 2rem;
