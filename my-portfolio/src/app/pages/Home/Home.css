@@ -399,6 +399,7 @@
           h1 {
               font-size: 4.4rem;
               margin-bottom: 1rem;
+              margin-top: 3rem;
           }
 
           p {
@@ -441,9 +442,10 @@
       }
 
       .tech-section {
-        margin-top: 2rem;
         > h2 {
-        font-size: 3rem;
+        font-size: 3rem;        
+        margin-top: 3rem;
+
         }
 
         .tech-category {

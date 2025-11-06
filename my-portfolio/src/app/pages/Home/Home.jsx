@@ -12,6 +12,7 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
 const Home = () => {
   gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin);
+  
   useGSAP(() => {
     const tl = gsap.timeline();
 
