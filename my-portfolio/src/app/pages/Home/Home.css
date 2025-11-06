@@ -440,10 +440,11 @@
         
       }
 
-      .tech-section {
+      .tech-section {        
+        margin-top: 4.5rem;
+
         > h2 {
         font-size: 3rem;        
-        margin-top: 3rem;
 
         }
 
