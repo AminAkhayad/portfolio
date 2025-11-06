@@ -339,7 +339,6 @@
         .hero-description {
           h1 {
             font-size: 11rem;
-            margin-top: 0rem;
           }
         }
       }
@@ -399,7 +398,7 @@
           h1 {
               font-size: 4.4rem;
               margin-bottom: 1rem;
-              margin-top: 3rem;
+              margin-top: 4rem;
           }
 
           p {
